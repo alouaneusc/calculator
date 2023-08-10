@@ -48,11 +48,17 @@ class Main:
         self.btn_minus = tk.Button(self.button_frame, text='-',command=self.subtract,**self.button_params)
         self.btn_minus.grid(row=3, column=1, sticky=tk.W + tk.E)
 
+        self.btn_multiply = tk.Button(self.button_frame, text='*', command=self.multiply, **self.button_params)
+        self.btn_multiply.grid(row=3, column=2, sticky=tk.W + tk.E)
+
+        self.btn_divide = tk.Button(self.button_frame, text='/', command=self.divide, **self.button_params)
+        self.btn_divide.grid(row=4, column=0, sticky=tk.W + tk.E)
+
         self.btn_clear = tk.Button(self.button_frame, text='Clear',command=self.clear,**self.button_params)
-        self.btn_clear.grid(row=3, column=2, sticky=tk.W + tk.E)
+        self.btn_clear.grid(row=4, column=1, sticky=tk.W + tk.E)
 
         self.btn_enter = tk.Button(self.button_frame, text='Enter',command=self.enter,**self.button_params)
-        self.btn_enter.grid(row=4, sticky=tk.W + tk.E)
+        self.btn_enter.grid(row=4,column=2, sticky=tk.W + tk.E)
 
         self.button_frame.pack(fill='x')
 
@@ -80,6 +86,10 @@ class Main:
         self.textbox.insert(tk.END, '-')
     def plus(self):
         self.textbox.insert(tk.END, '+')
+    def multiply(self):
+        self.textbox.insert(tk.END, '*')
+    def divide(self):
+        self.textbox.insert(tk.END, '/')
 
     def enter(self):
         expression = self.textbox.get("1.0", tk.END).strip()
